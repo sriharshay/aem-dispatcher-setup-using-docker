@@ -4,11 +4,11 @@ Sample AEM project to build components, services. Setup dispatcher and understan
 
 ## Pre-requisite
 
-* JDK 11
+* JDK 11+
 * Maven 3.8+
 * Docker 20+
-* Git 2.32
-* Host file has below entries pointing to localhost
+* Git 2.32+
+* Host file has below entries and they point to localhost
     * author.local
     * publish.local
 
@@ -63,6 +63,9 @@ Copy the above image to any workstation and load the image
     docker load -i aem-redesign-dispatcher.tar
 
 Run `docker-compose up -d` to start the dispatcher
+
+Note: Dispatcher setup referred
+from `https://blogs.perficient.com/2021/01/05/setting-up-a-local-aem-dispatcher-with-docker/`
 
 ## Modules
 
