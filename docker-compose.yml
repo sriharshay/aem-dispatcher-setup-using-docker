@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+
+  dispatcher:
+    image: aem-sample-site/dispatcher:latest
+    ports:
+      - 80:80
+    environment:
+      DISP_ID: aem-sample-site-docker-1
+      AUTHOR_DEFAULT_HOSTNAME: author.local
+      AUTHOR_IP: host.docker.internal
+      AUTHOR_PORT: 4502
+      AUTHOR_DOCROOT: /mnt/var/www/author
+      PUBLISH_DEFAULT_HOSTNAME: publish.local
+      PUBLISH_IP: host.docker.internal
+      PUBLISH_PORT: 4503
+      PUBLISH_DOCROOT: /mnt/var/www/html
+      CRX_FILTER: deny
+      DISP_LOG_LEVEL: DEBUG
+    volumes:
+      - ./dispatcher/src/conf:/etc/httpd/conf:ro
+      - ./dispatcher/src/conf.d:/etc/httpd/conf.d:ro
+      - ./dispatcher/src/conf.dispatcher.d:/etc/httpd/conf.dispatcher.d:ro
+      - ./dispatcher/src/conf.modules.d:/etc/httpd/conf.modules.d:ro
+      - /mnt/var/www/html
